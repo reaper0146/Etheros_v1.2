@@ -388,11 +388,11 @@ App = {
 
         if (hash_test === 'empty')
         {
-            $('#modal-receipt').attr('hidden', false);
+            $('#modal-buyIt').attr('hidden', false);
         }
         else{
             $('#modal-receipt').attr('hidden', false);
-            App.runPython(event.returnValues._hashvalue);
+            App.runPython(hash_test);
         }
     },
 
@@ -453,6 +453,14 @@ App = {
 
     CloseReceipt: async () => {
         $('#modal-receipt').attr('hidden', true);
+        console.log('hello');
+        App.unblurBackground();
+
+
+    },
+
+    CloseBuyIt: async () => {
+        $('#modal-buyIt').attr('hidden', true);
         console.log('hello');
         App.unblurBackground();
 

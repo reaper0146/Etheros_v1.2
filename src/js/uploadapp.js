@@ -79,19 +79,3 @@ const encryptWithAES = async (text) => {
   console.log(passphrase)
   return CryptoJS.AES.encrypt(text, passphrase).toString();
 };
-/*
-testFile = () => {
-  
-  console.log("Submitted!")
-
-const file = document.getElementById('filepy').files[0];
-//let photo = document.getElementById("image-file").files[0];  // file from input
-let req = new XMLHttpRequest();
-let formData = new FormData();
-
-formData.append("file", file);    
-let url = "http://localhost:5001/testPy";                            
-req.open("POST", url, true);
-req.send(formData);
-  
-  };*/

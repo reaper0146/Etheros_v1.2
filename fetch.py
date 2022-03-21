@@ -1,9 +1,5 @@
 import io
-import sys
 import pandas as pd
-import subprocess
-import json
-import requests
 from Crypto.Cipher import AES
 
 #open text file in read mode
@@ -16,35 +12,10 @@ datatest = text_file.read()
 text_file.close()
 print(datatest)
 
-if sys.version_info[0] < 3: 
-    from StringIO import StringIO
-else:
-    from io import StringIO
-
-##data = os.system('curl -X POST \"https://ipfs.infura.io:5001/api/v0/cat?arg=QmNM6EjpTvf236cZUzCwQxv1xbiBYjHsTKJP7xKhvwU8YW\"')
-
-#print(data)
-#TESTDATA = StringIO(os.system('curl -X POST \"https://ipfs.infura.io:5001/api/v0/cat?arg=QmNM6EjpTvf236cZUzCwQxv1xbiBYjHsTKJP7xKhvwU8YW\"'))
-#print(TESTDATA)
-#df = pd.read_csv(str(os.system('curl -X POST \"https://ipfs.infura.io:5001/api/v0/cat?arg=QmNM6EjpTvf236cZUzCwQxv1xbiBYjHsTKJP7xKhvwU8YW")), sep=",")
-
-link = "https://ipfs.infura.io:5001/api/v0/cat?arg="+test #QmNM6EjpTvf236cZUzCwQxv1xbiBYjHsTKJP7xKhvwU8YW"
-
-#print(link)
-#print(type(link))
-
-#proc = subprocess.run(["curl",  "-X", "POST",  
-#                  link],
-#                   stdout=subprocess.PIPE, encoding='utf-8')
-
-#cadastro = proc.stdout
-#print(cadastro)
 data = io.StringIO(datatest)
-#df = pd.DataFrame([json.loads(cadastro)])
-#print(data)
+
 df = pd.read_csv(data, sep=",")
-#print(df)
-#print(type(test))
+
 # Simple Linear Regression
 
 # Importing the libraries

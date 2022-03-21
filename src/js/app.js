@@ -148,34 +148,6 @@ App = {
         $('.btn-show-events').hide();
     },
 
-    /*encryptMessage: async(key) => {
-        let encoded = getMessageEncoding();
-        // counter will be needed for decryption
-        counter = window.crypto.getRandomValues(new Uint8Array(16));
-        console.log(counter)
-        return window.crypto.subtle.encrypt(
-          {
-            name: "AES-CTR",
-            counter,
-            length: 64
-          },
-          key,
-          encoded
-        );
-      },
-
-       decryptMessage: (key, ciphertext) =>{
-        return window.crypto.subtle.decrypt(
-          {
-            name: "AES-CTR",
-            counter,
-            length: 64
-          },
-          key,
-          ciphertext
-        );
-      },*/
-
     sellArticle: async () => {
         const articlePriceValue = parseFloat($('#article_price').val());
         const articlePrice = isNaN(articlePriceValue) ? "0" : articlePriceValue.toString();
@@ -304,40 +276,6 @@ App = {
             $('#modal-receipt').attr('hidden', false);
             App.blurBackground();
 
-
-
-            
-
-
-            
-
-// FOLLOWING CODE OPENS WINDOW (IN WORKS)
-
-
-        /*    print = () => {
-                let popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-                popupWin.document.open();
-                popupWin.document.write(`
-                  <html>
-                    <head>
-                      <title>Here is your passcode</title>
-                     </head>
-                <body>test</body>
-                  </html>`
-                );
-                popupWin.document.close();
-            }
-            function openOther(){
-              //I called Api using service
-               let scope=this;
-               setTimeout(function() { scope.print(); }, 3000);
-            }
-            openOther();
-*/
-        //   App.logBuyArticleEventListener = marketInstance.LogBuyArticle({fromBlock: '0'}).on("data", event => {
-        //  console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
-       // })
-           // console.log(marketInstance.Article.hashvalue);
         } catch(error) {
             console.error(error);
             $('#modal-loading').attr('hidden', true);
@@ -388,26 +326,8 @@ App = {
                     $('#modal-loading').attr('hidden', false);
                     hash_test = event.returnValues._hashvalue
                     App.blurBackground();
-
-                //} else {
-                //    return
-            //    }
                 });                
             });     
-
-            /*    App.logBuyArticleEventListener = marketInstance.LogBuyArticle({fromBlock: "0" }).on("data", event => {
-                
-               console.log(_articleId);
-               console.log(event.returnValues);
-               
-
-               
-
-                });
-
-            /*    console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
-               console.log(event.returnValues._name);
-               console.log(event.returnValues._seller); */
             console.log(hash_test);
             //await App.testfn(hash_test);
             console.log("transaction receipt", transactionReceipt);

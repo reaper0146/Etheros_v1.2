@@ -120,7 +120,7 @@ App = {
 			};
 
 			// Converting JSON data to string
-			var data = JSON.stringify({ "cid": identifier, "key": de_key});
+			var data = JSON.stringify({ "cid": identifier, "key": key});
             console.log(data)
 
 			// Sending data with the request
@@ -288,6 +288,7 @@ App = {
     getArticle: async () => {
         event.preventDefault();
         var hash_test = 'empty'
+        var decrypt_key = 'empty'
 
         // retrieve the article price
         var _articleId = $(event.target).data('id');
@@ -319,12 +320,13 @@ App = {
                 //console.log(transactionReceipt.receipt);
                 console.log(_articleId);
                 //if (number == _articleId){
-                    console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
-                    console.log(event.returnValues._name);
-                    console.log(event.returnValues._seller);
-                    $('#purchaselink').text(event.returnValues._hashvalue);
+                    //console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
+                    console.log(event.returnValues._hashvalue);
+                    console.log(event.returnValues._description);
+                    //$('#purchaselink').text(event.returnValues._hashvalue);
                     $('#modal-loading').attr('hidden', false);
-                    hash_test = event.returnValues._hashvalue
+                    hash_test = event.returnValues._hashvalue;
+                    decrypt_key = event.returnValues._description;;
                     App.blurBackground();
                 });                
             });     
@@ -348,7 +350,7 @@ App = {
         }
         else{
             $('#modal-receipt').attr('hidden', false);
-            App.runPython(hash_test);
+            App.runPython(hash_test, decrypt_key);
         }
     },
 

@@ -3,7 +3,6 @@ const ipfs = new IPFS({host: 'ipfs.infura.io', port: 5001, protocol: 'https'});
 const CryptoJS = require('crypto-js');
 var key = 'empty'
 
-
 makeid = (length) =>{
   var result           = '';
   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

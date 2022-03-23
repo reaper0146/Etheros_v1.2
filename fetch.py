@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 
 # Importing the dataset
 dataset = df #pd.read_csv(data, sep=",")
-print(dataset)
+#print(dataset)
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 

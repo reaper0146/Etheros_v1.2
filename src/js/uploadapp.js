@@ -29,6 +29,7 @@ uploadFile = () => {
     //file is converted to a buffer to prepare for uploading to IPFS
       var enctext = await encryptWithAES(reader.result)
       const buffer = await Buffer.from(enctext);
+      console.log(key)
       //console.log(enctext)
     //set this buffer -using es6 syntax
       //setState({buffer});

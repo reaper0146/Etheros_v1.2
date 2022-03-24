@@ -45,11 +45,6 @@ contract Market is Ownable {
         address[] _ACL);
 
     event LogNoAccess(
-        uint indexed _id,
-        string _decryptkey,
-        string _hashvalue);
-
-    event LogNoAccess(
         string accessTxt
     );
 
@@ -156,7 +151,7 @@ contract Market is Ownable {
             }
         }
         if (flag == 2) {
-            emit LogHasAccess(_id, article.decryptkey, article.hashvalue);
+            emit LogBuyArticle(_id, article.seller, article.buyer, article.name, article.decryptkey, article.price, article.hashvalue, article.ACL);
         } else {
             emit LogNoAccess("Need to purchase first");
         }

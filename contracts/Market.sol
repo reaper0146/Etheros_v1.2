@@ -83,7 +83,7 @@ contract Market is Ownable {
         // check that there is at least one article
         require(articleCounter > 0, "There should be at least one article");
 
-        // we check whether the article exists
+        // check that the article exists
         require(_id > 0 && _id <= articleCounter, "Article with this id does not exist");
 
         // retrieve the article

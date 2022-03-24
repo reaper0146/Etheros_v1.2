@@ -18,7 +18,7 @@ const decryptWithAES = (ciphertext, de_key) => {
     return originalText;
   };
 
-app.post('/runPython', (req,res)=> {
+app.post('/runPython', async (req,res)=> {
     const cid = String(req.body.cid);
     console.log(cid);
     const decryptKey = String(req.body.key);
@@ -48,8 +48,18 @@ app.post('/runPython', (req,res)=> {
           // result is an array consisting of messages collected
           //during execution of script.
           console.log('result: ', result.toString());
+          //delete the file after it's used
+        fs.unlink('Output.txt', (err) => {
+            if (err) {
+            console.error(err)
+            return
+        }
+    });
+      
           //res.send(result.toString())
-});
+    });
+
+    
 })
 
 app.post('/testPy', (req,res)=> {

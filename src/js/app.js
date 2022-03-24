@@ -229,21 +229,12 @@ App = {
             ).on("transactionHash", hash => {
                 console.log("transaction hash", hash);
 
-                var number = 0;
-                console.log(number);
-                //console.log(_articleId);
-                //number = _articleId
-                marketInstance.LogBuyArticle({fromBlock: "0", toBlock: 'latest'}).on("data", async function(event) {
-                number++;    
-                console.log(number);
-                console.log(event)
+                marketInstance.LogBuyArticle({fromBlock: "0", toBlock: 'latest'}).on("data", async function(event) { 
                 //console.log(transactionReceipt.receipt);
                 console.log(_articleId);
                 //if (number == _articleId){
                     console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
-                    console.log(event.returnValues._name);
-                    console.log(event.returnValues._seller);
-                    console.log(event.returnValues._decryptkey);
+                    console.log(event);
                     await $('#purchaselink').text(event.returnValues._hashvalue);
                     $('#modal-loading').attr('hidden', false);
                     //hash_test = event.returnValues._hashvalue
@@ -307,27 +298,20 @@ App = {
                     gas: 500000
                 }
             ).on("transactionHash", hash => {
-                console.log("transaction hash", hash);
+                //console.log("transaction hash", hash);
 
-                var number = 0;
-                console.log(number);
-                //console.log(_articleId);
-                //number = _articleId
                 marketInstance.LogBuyArticle({fromBlock: "0", toBlock: 'latest'}).on("data", async function(event) {
-                number++;    
-                console.log(number);
-                console.log(event)
-                //console.log(transactionReceipt.receipt);
                 console.log(_articleId);
-                //if (number == _articleId){
-                    //console.log('https://ipfs.infura.io/ipfs/' + event.returnValues._hashvalue);
+
                     console.log(event.returnValues._hashvalue);
                     console.log(event.returnValues._decryptkey);
+                    console.log(event.returnValues._name);
+                    //console.log(event.returnValues._seller);
                     //$('#purchaselink').text(event.returnValues._hashvalue);
-                    $('#modal-loading').attr('hidden', false);
-                    hash_test = event.returnValues._hashvalue;
-                    decrypt_key = event.returnValues._decryptkey;
-                    App.blurBackground();
+                hash_test = event.returnValues._hashvalue;
+                decrypt_key = event.returnValues._decryptkey;
+                $('#modal-loading').attr('hidden', false);
+                App.blurBackground();
                 });                
             });     
             console.log(hash_test);
@@ -389,8 +373,7 @@ App = {
         // Retrieve and fill the article template
         var articleTemplate = $('#articleTemplate');
         articleTemplate.find('.panel-title').text(" " + name);
-        //articleTemplate.find('.article-description').text(description);
-        articleTemplate.find('.article-price').text(etherPrice);
+         articleTemplate.find('.article-price').text(etherPrice);
         articleTemplate.find('.btn-buy').attr('data-id', id);
         articleTemplate.find('.btn-buy').attr('data-value', etherPrice);
 

@@ -51,4 +51,9 @@ npm run dev
 localhost:3000/
 ```
 
+10. Run
+```
+node server
+```
+
 10. Refer to video on how it works after it is hosted on localhost
